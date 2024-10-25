@@ -15,6 +15,10 @@ builder.Services.AddCors(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//Add DI containers for the game
+builder.Services.AddScoped<Player>();
+builder.Services.AddScoped<IGameMaster, GameMaster>();
+builder.Services.AddScoped<IGameLogic, RockPaperScissorsLizardSpockLogic>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
