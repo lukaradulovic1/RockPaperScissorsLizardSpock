@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="GameLogicFolder\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Swagger\" />
   </ItemGroup>
