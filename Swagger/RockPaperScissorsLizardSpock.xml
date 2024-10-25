@@ -29,5 +29,91 @@
             <param name="choice"></param>
             <returns>JSON array</returns>
         </member>
+        <member name="T:PlayerChoiceModel">
+            <summary>
+            Player choice model is used to wrap the int value in an object due to the use of the POST method
+            </summary>
+        </member>
+        <member name="M:GameMaster.PlayGame(Player)">
+            <summary>
+            Play game method used to call all elements to run the game
+            First we check for proper input, instanciate the Computer player
+            and run Determine winner function that returns the response to be sent to the frontend
+            </summary>
+            <param name="player"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GameMaster.InstanciateComputerPlayer">
+            <summary>
+            Creates Computer player with random numbered shape
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameMaster.GetRandomChoice">
+            <summary>
+            Returns random shape to be used in endpoint Choice
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameMaster.Choices">
+            <summary>
+            Returns the choices to populate the list of shapes on the frontend
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Outcome">
+            <summary>
+            Using enums as outcomes for easier converting from string to int from back to frontend
+            </summary>
+        </member>
+        <member name="T:RockPaperScissorsLizardSpockLogic">
+            <summary>
+            Logic class called by the name of the game but inheriting IGameLogic which allows us to swap out game logics for different playstyles and testing of the code
+            </summary>
+        </member>
+        <member name="M:RockPaperScissorsLizardSpockLogic.InstanciateGameOutcomes">
+            <summary>
+            Instanciates current game outcomes based on this specific game logic
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RockPaperScissorsLizardSpockLogic.DetermineWinner(Player,Player,System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.List{System.String}})">
+            <summary>
+            Method used to determine winner where we check if the Computers shape is found in the 
+            dictionary that contains all outcomes based on the shapes
+            In short, if your shape is Paper, we check if the Computer shape is in the list of 
+            shapes you defeat, or lose to or get a draw
+            </summary>
+            <param name="player"></param>
+            <param name="cpuPlayer"></param>
+            <param name="gameOutcomes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RockPaperScissorsLizardSpockLogic.Choices">
+            <summary>
+            Method to return all shapes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RockPaperScissorsLizardSpockLogic.Choice">
+            <summary>
+            Method to return a random shape each time it is called
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:IGameLogic">
+            <summary>
+            Using interface so we are able to swap out game logic based on types of games, 
+            like Rock Paper Scissors or Rock Paper Scissors Wizard or Human Rock Paper Scissors
+            </summary>
+        </member>
+        <member name="T:IGameMaster">
+            <summary>
+            GameMaster interface used to determine winners, gather all data for the game and instanciate computer player
+            Also could be swapped out to instaciate more human players or Cpu vs cpu but that was not implemented
+            </summary>
+        </member>
     </members>
 </doc>
