@@ -5,3 +5,8 @@
 /.vs
 /obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
 /bin
+/obj/project.assets.json
+/obj/project.nuget.cache
+/obj/RockPaperScissorsLizardSpock.csproj.nuget.dgspec.json
+/obj/RockPaperScissorsLizardSpock.csproj.nuget.g.props
+/obj/RockPaperScissorsLizardSpock.csproj.nuget.g.targets
