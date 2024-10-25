@@ -62,7 +62,6 @@
             3: "Lizard",
             4: "Spock"
         };
-        
         function populateChoices() {
             fetch('Choices')
                 .then(response => response.json())
@@ -87,6 +86,15 @@
                 });
         }
         window.onload = populateChoices;
+
+        const playButton = document.getElementById("playButton");
+        let gamePlayed = false;
+
+        var slideshow = document.getElementById("slideshow");
+        var roundDeclaration = document.getElementById("round-declaration");
+        var playAgainPrompt = document.getElementById("play-again");
+        var choices = document.getElementById("choices");
+        var choicesLabel = document.getElementById("choices-label");
 
     </script>
   </body>
