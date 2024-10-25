@@ -10,3 +10,7 @@
 /obj/RockPaperScissorsLizardSpock.csproj.nuget.dgspec.json
 /obj/RockPaperScissorsLizardSpock.csproj.nuget.g.props
 /obj/RockPaperScissorsLizardSpock.csproj.nuget.g.targets
+/obj/Debug/net6.0/RockPaperScissorsLizardSpock.AssemblyInfo.cs
+/obj/Debug/net6.0/RockPaperScissorsLizardSpock.AssemblyInfoInputs.cache
+/obj/Debug/net6.0/RockPaperScissorsLizardSpock.assets.cache
+/obj/Debug/net6.0/RockPaperScissorsLizardSpock.csproj.AssemblyReference.cache
