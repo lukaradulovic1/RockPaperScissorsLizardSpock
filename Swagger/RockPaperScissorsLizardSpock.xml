@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RockPaperScissorsLizardSpock</name>
+    </assembly>
+    <members>
+        <member name="M:GameController.Index">
+            <summary>
+            Return the Index.cshtml view containing the frontend code.
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:GameController.Choice">
+            <summary>
+            Return a random shape with its id and name.
+            </summary>
+            <returns>Choice{id = placeholder, name = placeholder}</returns>
+        </member>
+        <member name="M:GameController.Choices">
+            <summary>
+            Return a list of shape choices to include in the game
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameController.Play(PlayerChoiceModel)">
+            <summary>
+            POST method endpoint to play the game that returns the shapes of player, computer and the results
+            </summary>
+            <param name="choice"></param>
+            <returns>JSON array</returns>
+        </member>
+    </members>
+</doc>
