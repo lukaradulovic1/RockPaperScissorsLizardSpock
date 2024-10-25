@@ -34,5 +34,15 @@ public class GameController : Controller
     {
         return Ok(_gameMaster.GetRandomChoice());
     }
+
+    /// <summary>
+    /// Return a list of shape choices to include in the game
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("Choices")]
+    public IActionResult Choices()
+    {
+        return Ok(_gameMaster.Choices());
+    }
 }
 
