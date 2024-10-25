@@ -12,6 +12,7 @@ builder.Services.AddCors(options =>
                           .AllowAnyHeader());
 });
 
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -19,9 +20,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<Player>();
 builder.Services.AddScoped<IGameMaster, GameMaster>();
 builder.Services.AddScoped<IGameLogic, RockPaperScissorsLizardSpockLogic>();
-var app = builder.Build();
 
-builder.Services.AddEndpointsApiExplorer(); 
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
@@ -29,6 +29,9 @@ builder.Services.AddSwaggerGen(c =>
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     c.IncludeXmlComments(xmlPath);
 });
+
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -50,7 +53,7 @@ app.UseCors("AllowAnyOrigin");
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-    c.RoutePrefix = "swagger"; // Change the path to /api-docs
+    c.RoutePrefix = "swagger"; 
 });
 
 app.UseRouting();
