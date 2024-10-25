@@ -96,6 +96,32 @@
         var choices = document.getElementById("choices");
         var choicesLabel = document.getElementById("choices-label");
 
+        playButton.addEventListener("click", function () {
+            if (!gamePlayed) {
+                slideshow.style.display = "none";
+                roundDeclaration.style.display = "block";
+                playAgainPrompt.style.display = "block";
+                choices.style.display = "none";
+                choicesLabel.style.display = "none";
+
+                playButton.innerHTML = "Play again";
+                gamePlayed = true;
+                play();
+                populateChoices();
+
+            } else {
+                slideshow.style.display = "block";
+                roundDeclaration.style.display = "none";
+                playAgainPrompt.style.display = "none";
+                choices.style.display = "block";
+                choicesLabel.style.display = "block";
+                playButton.innerHTML = "Play";
+                populateChoices();
+                gamePlayed = false;
+            }
+        });
+
+
     </script>
   </body>
 </html>
