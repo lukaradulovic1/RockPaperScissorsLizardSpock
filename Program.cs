@@ -4,6 +4,14 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAnyOrigin",
+        builder => builder.AllowAnyOrigin() // Temporarily allow any origin
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
+});
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
