@@ -46,3 +46,7 @@ public class GameController : Controller
     }
 }
 
+public class PlayerChoiceModel
+{
+    public int? Player { get; set; }
+}
