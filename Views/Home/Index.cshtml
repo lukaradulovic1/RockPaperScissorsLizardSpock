@@ -1,8 +1,58 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Rock Paper Scissors Lizard Spock";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+</head>
+  <body>
+    <div id="slideshow">
+      <div class="slide-wrapper">
+        <div class="slide">
+          <h1 class="slide-number">Rock</h1>
+          <img src="~/css/Assets/rock.png" alt="Rock" />
+        </div>
+        <div class="slide">
+          <h1 class="slide-number">Paper</h1>
+          <img src="~/css/Assets/paper.png" alt="Paper" />
+        </div>
+        <div class="slide">
+          <h1 class="slide-number">Scissors</h1>
+          <img src="~/css/Assets/scissors.png" alt="Scissors" />
+        </div>
+        <div class="slide">
+          <h1 class="slide-number">Lizard</h1>
+          <img src="~/css/Assets/lizard.png" alt="Lizard" />
+        </div>
+        <div class="slide">
+          <h1 class="slide-number">Spock</h1>
+          <img src="~/css/Assets/spock.png" alt="Spock" />
+        </div>
+      </div>
+    </div>
+    <div id="round-declaration">
+        <div id="result">
+            <p>Your Shape: </p>
+            <p>Computer Shape: </p>
+            <p id="result-outcome">Result: </p>
+        </div>
+
+    </div>
+    <div id="play-again">PLAY AGAIN?</div>
+
+    <div id="choices-wrapper">
+        <div id="choices-container">
+            <label id="choices-label" for="choices">Choose a shape:</label>
+            <select name="choices" id="choices">
+                <option value="">-</option>
+            </select>
+        </div>
+        <button id="playButton">Play</button>
+    </div>
+    
+  </body>
+</html>
