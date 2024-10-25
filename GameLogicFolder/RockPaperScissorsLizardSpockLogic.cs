@@ -25,7 +25,23 @@ public class RockPaperScissorsLizardSpockLogic : IGameLogic
         return gameOutcomes;
     }
 
+    public MatchResult DetermineWinner(Player player, Player cpuPlayer, Dictionary<int, List<string>> gameOutcomes)
+    {
+        List<string> everyoneThatIDefeat = gameOutcomes[(int)player.Shape];
+        List<string> everyoneThatCpuDefeats = gameOutcomes[(int)cpuPlayer.Shape];
 
+        string result = Outcome.tie.ToString();
+
+        if (everyoneThatIDefeat.Contains(cpuPlayer.Shape.ToString()))
+        {
+            result = Outcome.win.ToString();
+        }
+        if (everyoneThatCpuDefeats.Contains(player.Shape.ToString()))
+        {
+            result = Outcome.lose.ToString();
+        }
+        return new MatchResult((int)player.Shape, (int)cpuPlayer.Shape, result);
+    }
 
 
 
