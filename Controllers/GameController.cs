@@ -75,7 +75,6 @@ public class GameController : Controller
 
     }
 }
-}
 
 public class PlayerChoiceModel
 {
