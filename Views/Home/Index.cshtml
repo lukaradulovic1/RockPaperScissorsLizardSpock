@@ -63,6 +63,30 @@
             4: "Spock"
         };
         
+        function populateChoices() {
+            fetch('Choices')
+                .then(response => response.json())
+                .then(data => {
+                    var dropdown = document.getElementById("choices");
+                    dropdown.innerHTML = '';
+
+                    var defaultOption = document.createElement("option");
+                    defaultOption.value = "";
+                    defaultOption.text = "-";
+                    dropdown.appendChild(defaultOption);
+
+                    data.forEach(choice => {
+                        var option = document.createElement("option");
+                        option.value = choice.id;
+                        option.text = choice.name;
+                        dropdown.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching choices:', error);
+                });
+        }
+        window.onload = populateChoices;
 
     </script>
   </body>
