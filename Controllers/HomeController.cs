@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RockPaperScissorsLizardSpock.Models;
 using System.Diagnostics;
 
 namespace RockPaperScissorsLizardSpock.Controllers
