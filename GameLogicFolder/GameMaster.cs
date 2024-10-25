@@ -25,7 +25,6 @@ public class GameMaster : IGameMaster
         {
             throw new Exception("An error occurred while playing the game.", ex);
         }
-
     }
 
     public Player InstanciateComputerPlayer()
@@ -34,5 +33,14 @@ public class GameMaster : IGameMaster
         Player cpuPlayer = new Player();
         cpuPlayer.Shape = (Shape)Enum.ToObject(typeof(Shape), random.Next(0, 5));
         return cpuPlayer;
+    }
+    public Choice GetRandomChoice()
+    {
+        return _gameLogic.Choice();
+
+    }
+    public List<Choice> Choices()
+    {
+        return _gameLogic.Choices();
     }
 }
