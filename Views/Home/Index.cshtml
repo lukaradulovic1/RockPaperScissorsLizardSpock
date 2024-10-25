@@ -121,7 +121,79 @@
             }
         });
 
+        function play() {
+            var selectedChoice = document.getElementById("choices").value;
+            console.log(selectedChoice);
+            if (selectedChoice === "-") {
+                alert("Please select a valid shape.");
+                return;
+            }
+            fetch('/play', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    player: parseInt(selectedChoice)
+                })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        document.getElementById("result").innerHTML = "Please choose a shape";
+                    }
 
+                    return response.json();
+                })
+                .then(data => {
+                    const player = shapesDict[data.player];
+                    const computer = shapesDict[data.computer];
+                    const results = {
+                        "PlayerWins": "Player Wins!",
+                        "ComputerWins": "Computer Wins!",
+                        "Draw": "It's a Draw!"
+                    };
+
+                    document.getElementById("result").innerHTML = `
+                                                <p>Your Shape: ${player}</p>
+                                                <p>Computer Shape: ${computer}</p>
+                                                <p style="font-weight:bold;">Result: ${results[data.results] || data.results}</p>
+                                            `;
+
+                })
+                .catch(error => console.error('Error:', error));
+        }
     </script>
   </body>
 </html>
+<style>
+    #round-declaration {
+        margin: 0 auto;
+    }
+
+    #play-again {
+        margin: 0 auto;
+    }
+
+    #slideshow {
+        text-align: center;
+    }
+
+    #choices-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    #choices-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    #playButton {
+        display: block;
+    }
+
+</style>
