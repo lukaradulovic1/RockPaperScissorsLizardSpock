@@ -42,7 +42,26 @@ public class RockPaperScissorsLizardSpockLogic : IGameLogic
         }
         return new MatchResult((int)player.Shape, (int)cpuPlayer.Shape, result);
     }
+    public List<Choice> Choices()
+    {
+        return new List<Choice>
+        {
+            new(0, "Rock"),
+            new(1, "Paper"),
+            new(2, "Scissors"),
+            new(3, "Lizard"),
+            new(4, "Spock"),
+        };
+    }
+    public Choice Choice()
+    {
+        List<Choice> choices = Choices();
+        Random random = new Random();
 
+        int randomIndex = random.Next(choices.Count);
+
+        return choices[randomIndex];
+    }
 
 
 }
