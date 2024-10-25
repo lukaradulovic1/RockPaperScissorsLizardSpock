@@ -11,4 +11,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="GameLogicFolder\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Swagger\" />
+  </ItemGroup>
+
 </Project>

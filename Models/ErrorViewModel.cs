@@ -1,4 +1,4 @@
-namespace RockPaperScissorsLizardSpock.Models
+namespace RPSLSTest.Models
 {
     public class ErrorViewModel
     {
