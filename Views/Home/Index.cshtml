@@ -54,7 +54,7 @@
         <button id="playButton">Play</button>
     </div>
     <script>
-
+        // ShapesDictionary used to populate results window
         const shapesDict = {
             0: "Rock",
             1: "Paper",
@@ -62,6 +62,9 @@
             3: "Lizard",
             4: "Spock"
         };
+
+
+        // PopulateChoices is used to upload all shapes from Choices endpoint and present them to the user
         function populateChoices() {
             fetch('Choices')
                 .then(response => response.json())
@@ -87,6 +90,8 @@
         }
         window.onload = populateChoices;
 
+
+        // Variables used in the logic declared here so they dont have to be declared multiple times
         const playButton = document.getElementById("playButton");
         let gamePlayed = false;
 
@@ -96,6 +101,8 @@
         var choices = document.getElementById("choices");
         var choicesLabel = document.getElementById("choices-label");
 
+
+        // Play button listener checks for game state based on the button text and hides/shows elements based on that
         playButton.addEventListener("click", function () {
             if (!gamePlayed) {
                 slideshow.style.display = "none";
@@ -121,6 +128,9 @@
             }
         });
 
+
+        // Play function being called by pressing Play button returning a JSON response with results
+        // and populating the HTML elements
         function play() {
             var selectedChoice = document.getElementById("choices").value;
             console.log(selectedChoice);
