@@ -27,4 +27,12 @@ public class GameMaster : IGameMaster
         }
 
     }
+
+    public Player InstanciateComputerPlayer()
+    {
+        var random = new Random();
+        Player cpuPlayer = new Player();
+        cpuPlayer.Shape = (Shape)Enum.ToObject(typeof(Shape), random.Next(0, 5));
+        return cpuPlayer;
+    }
 }
