@@ -24,5 +24,15 @@ public class GameController : Controller
     {
         return View();
     }
+
+    /// <summary>
+    /// Return a random shape with its id and name.
+    /// </summary>
+    /// <returns>Choice{id = placeholder, name = placeholder}</returns>
+    [HttpGet("Choice")]
+    public IActionResult Choice()
+    {
+        return Ok(_gameMaster.GetRandomChoice());
+    }
 }
 
