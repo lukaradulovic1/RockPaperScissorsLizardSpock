@@ -1,9 +1,15 @@
 ﻿
 using System.Numerics;
 
-
+/// <summary>
+/// Logic class called by the name of the game but inheriting IGameLogic which allows us to swap out game logics for different playstyles and testing of the code
+/// </summary>
 public class RockPaperScissorsLizardSpockLogic : IGameLogic
 {
+    /// <summary>
+    /// Instanciates current game outcomes based on this specific game logic
+    /// </summary>
+    /// <returns></returns>
     public Dictionary<int, List<string>> InstanciateGameOutcomes()
     {
         Dictionary<int, List<string>> gameOutcomes = new();
@@ -25,6 +31,16 @@ public class RockPaperScissorsLizardSpockLogic : IGameLogic
         return gameOutcomes;
     }
 
+    /// <summary>
+    /// Method used to determine winner where we check if the Computers shape is found in the 
+    /// dictionary that contains all outcomes based on the shapes
+    /// In short, if your shape is Paper, we check if the Computer shape is in the list of 
+    /// shapes you defeat, or lose to or get a draw
+    /// </summary>
+    /// <param name="player"></param>
+    /// <param name="cpuPlayer"></param>
+    /// <param name="gameOutcomes"></param>
+    /// <returns></returns>
     public MatchResult DetermineWinner(Player player, Player cpuPlayer, Dictionary<int, List<string>> gameOutcomes)
     {
         List<string> everyoneThatIDefeat = gameOutcomes[(int)player.Shape];
@@ -42,6 +58,11 @@ public class RockPaperScissorsLizardSpockLogic : IGameLogic
         }
         return new MatchResult((int)player.Shape, (int)cpuPlayer.Shape, result);
     }
+
+    /// <summary>
+    /// Method to return all shapes
+    /// </summary>
+    /// <returns></returns>
     public List<Choice> Choices()
     {
         return new List<Choice>
@@ -53,6 +74,11 @@ public class RockPaperScissorsLizardSpockLogic : IGameLogic
             new(4, "Spock"),
         };
     }
+
+    /// <summary>
+    /// Method to return a random shape each time it is called
+    /// </summary>
+    /// <returns></returns>
     public Choice Choice()
     {
         List<Choice> choices = Choices();

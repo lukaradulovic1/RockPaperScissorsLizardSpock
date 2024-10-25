@@ -75,7 +75,9 @@ public class GameController : Controller
 
     }
 }
-
+/// <summary>
+/// Player choice model is used to wrap the int value in an object due to the use of the POST method
+/// </summary>
 public class PlayerChoiceModel
 {
     public int? Player { get; set; }
