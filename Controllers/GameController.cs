@@ -14,5 +14,15 @@ public class GameController : Controller
         this._gameMaster = gameMaster;
         this._player = player;
     }
+
+    /// <summary>
+    /// Return the Index.cshtml view containing the frontend code.
+    /// </summary>
+    /// <returns>ActionResult</returns>
+    [HttpGet("Index")]
+    public ActionResult Index()
+    {
+        return View();
+    }
 }
 
