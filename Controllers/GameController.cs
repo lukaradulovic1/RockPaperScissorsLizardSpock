@@ -44,6 +44,37 @@ public class GameController : Controller
     {
         return Ok(_gameMaster.Choices());
     }
+
+    /// <summary>
+    /// POST method endpoint to play the game that returns the shapes of player, computer and the results
+    /// </summary>
+    /// <param name="choice"></param>
+    /// <returns>JSON array</returns>
+    [HttpPost("Play")]
+    public IActionResult Play([FromBody] PlayerChoiceModel choice)
+    {
+        if (choice.Player.HasValue)
+        {
+            if (Enum.IsDefined(typeof(Shape), choice.Player.Value))
+            {
+                _player.Shape = (Shape)choice.Player.Value;
+                MatchResult result = _gameMaster.PlayGame(_player);
+
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest("Invalid shape provided.");
+            }
+        }
+
+        else
+        {
+            return BadRequest("Player choice is required.");
+        }
+
+    }
+}
 }
 
 public class PlayerChoiceModel
